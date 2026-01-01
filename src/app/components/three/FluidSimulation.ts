@@ -168,10 +168,10 @@ export class FluidSimulation {
     // Create fullscreen quad geometry (NDC coordinates)
     const geometry = new THREE.PlaneGeometry(2, 2);
 
-    // Detect if mobile to scale down metaballs
+    // Detect if mobile to scale metaballs
     const isMobile = detectDeviceType() === 'mobile';
-    const metaballScale = isMobile ? 0.75 : 1.0;
-    const metaballScaleX = isMobile ? 0.7 : 1.0; // Horizontal scale for mobile
+    const metaballScale = isMobile ? 0.75 : 1.1; // Slightly larger on desktop
+    const metaballScaleX = isMobile ? 0.7 : 1.1; // Slightly larger horizontal scale for desktop
 
     // Create shader material for raymarching
     this.material = new THREE.ShaderMaterial({
