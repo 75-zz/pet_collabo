@@ -1,0 +1,56 @@
+INFO  2025-12-31 13:57:20,099 serena.cli:health_check:550 - Starting health check for project: F:\作業\AI開発\pet_collabo
+INFO  2025-12-31 13:57:20,099 serena.cli:health_check:554 - Creating SerenaAgent with disabled dashboard...
+INFO  2025-12-31 13:57:20,182 serena.agent:__init__:198 - Starting Serena server (version=0.1.4, process id=14624, parent process id=11152)
+INFO  2025-12-31 13:57:20,183 serena.agent:__init__:199 - Configuration file: None
+INFO  2025-12-31 13:57:20,183 serena.agent:__init__:200 - Available projects: 
+INFO  2025-12-31 13:57:20,183 serena.agent:__init__:201 - Loaded tools (36): read_file, create_text_file, list_dir, find_file, replace_regex, delete_lines, replace_lines, insert_at_line, search_for_pattern, restart_language_server, get_symbols_overview, find_symbol, find_referencing_symbols, replace_symbol_body, insert_after_symbol, insert_before_symbol, write_memory, read_memory, list_memories, delete_memory, execute_shell_command, activate_project, remove_project, switch_modes, get_current_config, check_onboarding_performed, onboarding, think_about_collected_information, think_about_task_adherence, think_about_whether_you_are_done, summarize_changes, prepare_for_new_conversation, initial_instructions, jet_brains_find_symbol, jet_brains_find_referencing_symbols, jet_brains_get_symbols_overview
+INFO  2025-12-31 13:57:20,185 serena.config.serena_config:apply:106 - SerenaAgentContext[name='desktop-app'] included 1 tools: switch_modes
+INFO  2025-12-31 13:57:20,186 serena.agent:__init__:215 - Number of exposed tools: 25
+INFO  2025-12-31 13:57:20,257 serena.agent:_update_active_tools:397 - Active tools (25): activate_project, check_onboarding_performed, create_text_file, delete_memory, execute_shell_command, find_file, find_referencing_symbols, find_symbol, get_symbols_overview, insert_after_symbol, insert_before_symbol, list_dir, list_memories, onboarding, prepare_for_new_conversation, read_file, read_memory, replace_regex, replace_symbol_body, search_for_pattern, switch_modes, think_about_collected_information, think_about_task_adherence, think_about_whether_you_are_done, write_memory
+INFO  2025-12-31 13:57:20,259 serena.project:__init__:31 - Parsing all gitignore files in F:\作業\AI開発\pet_collabo
+INFO  2025-12-31 13:57:20,558 serena.project:__init__:33 - Found 0 gitignore files.
+INFO  2025-12-31 13:57:20,559 serena.agent:load_project_from_path_or_name:472 - Added new project pet_collabo for path F:\作業\AI開発\pet_collabo
+INFO  2025-12-31 13:57:20,559 serena.agent:_activate_project:437 - Activating pet_collabo at F:\作業\AI開発\pet_collabo
+INFO  2025-12-31 13:57:20,559 serena.agent:_update_active_tools:397 - Active tools (25): activate_project, check_onboarding_performed, create_text_file, delete_memory, execute_shell_command, find_file, find_referencing_symbols, find_symbol, get_symbols_overview, insert_after_symbol, insert_before_symbol, list_dir, list_memories, onboarding, prepare_for_new_conversation, read_file, read_memory, replace_regex, replace_symbol_body, search_for_pattern, switch_modes, think_about_collected_information, think_about_task_adherence, think_about_whether_you_are_done, write_memory
+INFO  2025-12-31 13:57:20,560 serena.agent:issue_task:416 - Scheduling Task-1[init_language_server]
+INFO  2025-12-31 13:57:20,561 serena.agent:start:329 - Task-1[init_language_server] starting ...
+INFO  2025-12-31 13:57:20,561 serena.cli:health_check:557 - SerenaAgent created successfully
+INFO  2025-12-31 13:57:20,561 serena.agent:start:329 - Language server initialization starting ...
+INFO  2025-12-31 13:57:20,561 serena.cli:health_check:560 - Searching for analyzable files...
+INFO  2025-12-31 13:57:20,561 serena.project:create_language_server:285 - Creating language server instance for F:\作業\AI開発\pet_collabo.
+INFO  2025-12-31 13:57:21,049 serena.agent:reset_language_server:589 - Starting the language server for pet_collabo
+INFO  2025-12-31 13:57:21,051 solidlsp:start:1684 - Starting language server with language typescript for F:\作業\AI開発\pet_collabo
+INFO  2025-12-31 13:57:21,052 solidlsp:_start_server:224 - Starting TypeScript server process
+INFO  2025-12-31 13:57:21,053 solidlsp.ls_handler:start:189 - Starting language server process via command: ['C:\\Users\\k75mi\\.serena\\language_servers\\static\\TypeScriptLanguageServer\\ts-lsp\\node_modules\\.bin\\typescript-language-server', '--stdio']
+INFO  2025-12-31 13:57:21,063 solidlsp:_start_server:228 - Sending initialize request from LSP client to LSP server and awaiting response
+INFO  2025-12-31 13:57:21,259 solidlsp:window_log_message:207 - LSP: window/logMessage: {"type": 3, "message": "Using Typescript version (bundled) 5.5.4 from path "C:\\Users\\k75mi\\.serena\\language_servers\\static\\TypeScriptLanguageServer\\ts-lsp\\node_modules\\typescript\\lib\\tsserver.js""}
+INFO  2025-12-31 13:57:22,271 solidlsp:_start_server:246 - Timeout waiting for TypeScript server to become ready, proceeding anyway
+INFO  2025-12-31 13:57:22,271 serena.agent:stop:336 - Language server initialization completed in 1.710 seconds
+INFO  2025-12-31 13:57:22,271 serena.agent:stop:336 - Task-1[init_language_server] completed in 1.710 seconds
+INFO  2025-12-31 13:57:34,765 serena.cli:health_check:569 - Found analyzable file: postcss.config.mjs
+INFO  2025-12-31 13:57:34,765 serena.cli:health_check:587 - Testing GetSymbolsOverviewTool on file: postcss.config.mjs
+INFO  2025-12-31 13:57:34,765 serena.agent:issue_task:416 - Scheduling Task-2[<lambda>]
+INFO  2025-12-31 13:57:34,766 serena.agent:start:329 - Task-2[<lambda>] starting ...
+INFO  2025-12-31 13:57:35,189 serena.agent:stop:336 - Task-2[<lambda>] completed in 0.423 seconds
+INFO  2025-12-31 13:57:35,190 serena.cli:health_check:590 - GetSymbolsOverviewTool returned 1 symbols
+INFO  2025-12-31 13:57:35,190 serena.cli:health_check:611 - No class or function found, using first available symbol
+INFO  2025-12-31 13:57:35,190 serena.cli:health_check:615 - Using symbol for testing: default (kind: 14)
+INFO  2025-12-31 13:57:35,190 serena.cli:health_check:618 - Testing FindSymbolTool for symbol: default
+INFO  2025-12-31 13:57:35,190 serena.agent:issue_task:416 - Scheduling Task-3[<lambda>]
+INFO  2025-12-31 13:57:35,190 serena.agent:start:329 - Task-3[<lambda>] starting ...
+INFO  2025-12-31 13:57:35,199 serena.agent:stop:336 - Task-3[<lambda>] completed in 0.009 seconds
+INFO  2025-12-31 13:57:35,200 serena.cli:health_check:623 - FindSymbolTool found 1 matches for symbol default
+INFO  2025-12-31 13:57:35,200 serena.cli:health_check:626 - Testing FindReferencingSymbolsTool for symbol: default
+INFO  2025-12-31 13:57:35,200 serena.agent:issue_task:416 - Scheduling Task-4[<lambda>]
+INFO  2025-12-31 13:57:35,200 serena.agent:start:329 - Task-4[<lambda>] starting ...
+INFO  2025-12-31 13:57:36,220 serena.agent:stop:336 - Task-4[<lambda>] completed in 1.020 seconds
+INFO  2025-12-31 13:57:36,221 serena.cli:health_check:630 - FindReferencingSymbolsTool found 0 references for symbol default
+INFO  2025-12-31 13:57:36,221 serena.cli:health_check:636 - Testing SearchForPatternTool for pattern: default
+INFO  2025-12-31 13:57:36,221 serena.agent:issue_task:416 - Scheduling Task-5[<lambda>]
+INFO  2025-12-31 13:57:36,221 serena.agent:start:329 - Task-5[<lambda>] starting ...
+INFO  2025-12-31 13:57:50,897 serena.text_utils:search_files:326 - Processing 60349 files.
+INFO  2025-12-31 13:58:53,714 serena.text_utils:search_files:367 - Found 174025 total matches across 60349 files
+INFO  2025-12-31 13:59:05,831 serena.agent:stop:336 - Task-5[<lambda>] completed in 1 minutes, 29.6 seconds
+WARNING 2025-12-31 13:59:05,832 serena.cli:health_check:645 - SearchForPatternTool failed for pattern default: Expecting value: line 1 column 1 (char 0)
+WARNING 2025-12-31 13:59:05,832 serena.cli:health_check:655 - Both FindReferencingSymbolsTool and SearchForPatternTool found no matches - this might indicate an issue
+INFO  2025-12-31 13:59:05,832 serena.cli:health_check:657 - Health check completed successfully

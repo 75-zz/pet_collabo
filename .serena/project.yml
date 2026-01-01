@@ -1,0 +1,28 @@
+# Serena Project Configuration
+# This file defines the project settings for Serena AI coding agent
+
+name: pet_collabo
+description: Pet Collabo - AI-Driven Innovation Website
+
+# Project root directory (auto-detected if not specified)
+# root: .
+
+# Primary language used in this project
+language: typescript
+
+# Directories to include in analysis
+include:
+  - src/**/*
+  - index.html
+  - "*.config.*"
+
+# Directories to exclude
+exclude:
+  - node_modules/**
+  - dist/**
+  - build/**
+  - .git/**
+
+# Language-specific settings
+typescript:
+  tsconfig: tsconfig.json
