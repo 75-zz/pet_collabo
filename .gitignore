@@ -1,3 +1,52 @@
+# =====================
+# Node / Frontend
+# =====================
+node_modules/
+dist/
+build/
+out/
+.next/
+coverage/
+
+# =====================
+# Env / Secrets
+# =====================
+.env
+.env.*
+*.local
+
+# =====================
+# Logs
+# =====================
+*.log
+.serena/logs/
+
+# =====================
+# OS / Editor
+# =====================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =====================
+# Cache / Temp
+# =====================
+.cache/
+.tmp/
+
+# =====================
+# Windows reserved names (重要)
+# =====================
 nul
 NUL
-node_modules
+con
+CON
+prn
+PRN
+aux
+AUX
+com1
+COM1
+lpt1
+LPT1

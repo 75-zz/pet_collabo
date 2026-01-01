@@ -47,7 +47,7 @@ export function WorksSection() {
       workItems?.forEach((item, index) => {
         const workContent = item.querySelector('.work-content');
         const workImage = item.querySelector('.work-image');
-        
+
         if (workContent) {
           gsap.from(workContent, {
             scrollTrigger: {
@@ -81,17 +81,17 @@ export function WorksSection() {
 
   return (
     <section ref={sectionRef} id="works" className="relative py-32 px-6 lg:px-12 overflow-hidden bg-white">
-      {/* Background Image */}
+      {/* Background Image - 木漏れ日 */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1745247468064-fedc01558d5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHJvbWUlMjBzcGhlcmUlMjAzRHxlbnwxfHx8fDE3NjcwOTkwMjh8MA&ixlib=rb-4.1.0&q=80&w=1920"
-          alt="Chrome 3D sphere"
-          className="w-full h-full object-cover opacity-10"
+          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+          alt="Sunlight through leaves"
+          className="w-full h-full object-cover opacity-20"
         />
       </div>
-      
+
       {/* Overlay */}
-      <div className="absolute inset-0 z-10 bg-white/90"></div>
+      <div className="absolute inset-0 z-10 bg-white/85"></div>
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto">

@@ -69,16 +69,18 @@ export class FluidSimulation {
   private createRenderer(): THREE.WebGLRenderer {
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: this.quality.renderScale >= 1.0,
+      antialias: false,  // Disable antialiasing for better performance
       powerPreference: 'high-performance',
+      stencil: false,  // Disable stencil buffer
+      depth: false,  // Disable depth buffer for 2D raymarch
     });
 
     const width = this.container.clientWidth;
     const height = this.container.clientHeight;
 
-    // DO NOT use renderScale for canvas size - use full size
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Apply render scale for performance
+    renderer.setSize(width * this.quality.renderScale, height * this.quality.renderScale, false);
+    renderer.setPixelRatio(1);  // Set to 1 and control via renderScale
     renderer.setClearColor(0x000000, 0); // Transparent background
 
     // Force canvas style
@@ -264,7 +266,8 @@ export class FluidSimulation {
     const height = this.container.clientHeight;
 
     // Orthographic camera doesn't need aspect ratio update
-    this.renderer.setSize(width, height);
+    // Apply render scale for performance
+    this.renderer.setSize(width * this.quality.renderScale, height * this.quality.renderScale, false);
 
     if (this.material) {
       this.material.uniforms.uResolution.value.set(width, height);

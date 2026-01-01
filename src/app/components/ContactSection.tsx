@@ -7,17 +7,22 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 
 gsap.registerPlugin(ScrollTrigger);
 
+type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     message: ''
   });
+
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -53,11 +58,54 @@ export function ContactSection() {
     return () => ctx.revert();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('お問い合わせを受け付けました。3営業日以内にご連絡いたします。');
-    setFormData({ name: '', email: '', company: '', message: '' });
+    setSubmitStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      // Vercel Serverless Function経由でメール送信
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', company: '', message: '' });
+
+        // 5秒後にステータスをリセット
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
+      } else {
+        throw new Error(result.error || 'フォーム送信に失敗しました');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : '送信中にエラーが発生しました。もう一度お試しください。'
+      );
+
+      // 5秒後にエラーをクリア
+      setTimeout(() => {
+        setSubmitStatus('idle');
+        setErrorMessage('');
+      }, 5000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -157,12 +205,45 @@ export function ContactSection() {
             />
           </div>
 
-          <button
-            type="submit"
-            className="form-field w-full py-6 bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300 text-xs tracking-[0.2em] uppercase"
-          >
-            Send Message
-          </button>
+          {/* Status Message */}
+          {submitStatus === 'success' && (
+            <div className="form-field p-6 bg-green-50 border-2 border-green-500 text-green-800 text-center">
+              <p className="text-sm font-medium">✓ お問い合わせを受け付けました</p>
+              <p className="text-xs mt-2">3営業日以内にご連絡いたします。</p>
+            </div>
+          )}
+
+          {submitStatus === 'error' && (
+            <div className="form-field p-6 bg-red-50 border-2 border-red-500 text-red-800 text-center">
+              <p className="text-sm font-medium">✗ エラーが発生しました</p>
+              <p className="text-xs mt-2">{errorMessage}</p>
+            </div>
+          )}
+
+          {/* Submit Button */}
+          <div className="form-field">
+            <button
+              type="submit"
+              disabled={submitStatus === 'submitting'}
+              className={`w-full py-6 transition-all duration-300 text-xs tracking-[0.2em] uppercase relative overflow-hidden ${
+                submitStatus === 'submitting'
+                  ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                  : 'bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground'
+              }`}
+            >
+              {submitStatus === 'submitting' ? (
+                <span className="flex items-center justify-center gap-3">
+                  <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Sending...
+                </span>
+              ) : (
+                'Send Message'
+              )}
+            </button>
+          </div>
         </form>
 
         <div className="mt-16 lg:mt-24 pt-12 lg:pt-16 border-t border-black/10 grid sm:grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12 text-center">

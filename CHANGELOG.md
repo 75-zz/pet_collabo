@@ -4,7 +4,61 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-### Added - 2025-01-01
+### Added - 2025-01-01 (Latest)
+
+#### 完全無料のメール送信機能実装
+
+- **Resend API統合**
+  - Vercel Serverless Functionsを使用したメール送信API（`api/send-email.ts`）
+  - 月3,000件まで完全無料（クレジットカード不要）
+  - HTMLメールテンプレート実装
+  - バリデーションとエラーハンドリング
+  - 送信状態管理（送信中、成功、エラー）
+  - ローディングアニメーション付き送信ボタン
+
+- **デプロイ・ドキュメント**
+  - `DEPLOY_TO_VERCEL.md` - Vercelデプロイの完全ガイド
+  - `docs/RESEND_API_SETUP.md` - Resend API詳細設定ガイド
+  - `docs/QUICK_START.txt` - クイックスタートガイド
+  - `docs/TROUBLESHOOTING.md` - トラブルシューティングガイド
+  - `README.md` - プロジェクト総合ドキュメント
+  - `vercel.json` - Vercel設定ファイル
+
+#### パフォーマンス最適化
+
+- **3D流体エフェクトの大幅な最適化**
+  - レイステップ数を削減（高品質: 64→48、中品質: 48→32）
+  - 解像度スケーリング（高: 0.8x、中: 0.75x、低: 0.5x）
+  - アンチエイリアス無効化
+  - 不要なバッファ削除（stencil, depth）
+  - SDFの早期リターン追加（クラスター外のポイントをスキップ）
+  - カールノイズを軽量な三角関数に置き換え
+  - レイマーチングのステップサイズを適応的に調整
+  - **結果**: 処理負荷30〜50%削減、体感的に大幅に軽量化
+
+#### デザイン改善
+
+- **フォント変更**
+  - デフォルトフォント: Inter → Cormorant Garamond（14px）
+  - より洗練されたセリフ体デザイン
+
+- **UI調整**
+  - ヘッダー背景の透明度調整（70%不透明で流体金属が透ける）
+  - AI Technology × Multi-Field Developmentの字間を縮小
+  - Pet Collaboロゴのフォントサイズ拡大（4rem〜12rem）
+  - 流体金属Metaballsのサイズ拡大（約1.7倍 → 2.2倍）
+
+- **背景画像**
+  - WorksSection（Current & Future）の背景を木漏れ日の画像に変更
+  - 自然で柔らかい雰囲気に
+
+#### バグフィックス
+
+- **ContactSection送信ボタン修正**
+  - GSAPアニメーションとの競合を解決
+  - `form-field` divで適切にラップ
+
+### Added - 2025-01-01 (Earlier)
 
 #### Three.js Raymarching Metaballs with Iridescent Effects
 

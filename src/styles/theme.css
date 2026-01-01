@@ -1,9 +1,9 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-size: 16px;
+  --font-size: 14px;
   --font-serif: 'Cormorant Garamond', serif;
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Cormorant Garamond', serif;
   --background: #ffffff;
   --foreground: #0a0a0a;
   --card: #ffffff;

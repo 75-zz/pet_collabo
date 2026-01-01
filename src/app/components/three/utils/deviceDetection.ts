@@ -120,12 +120,12 @@ export function getQualitySettings(preset: QualityPreset): QualitySettings {
     case 'high':
       return {
         metaballCount: 12,
-        raySteps: 64,
+        raySteps: 48,  // Reduced from 64 for better performance
         useFastNormals: false,
         targetFPS: 60,
         shaderPrecision: 'highp',
         noiseOctaves: 4,
-        renderScale: 1.0,
+        renderScale: 0.8,  // Slightly reduced resolution for performance
         enablePostProcessing: true,
         cullDistance: 25,
         updateFrequency: 1,
@@ -133,13 +133,13 @@ export function getQualitySettings(preset: QualityPreset): QualitySettings {
 
     case 'medium':
       return {
-        metaballCount: 8,
-        raySteps: 48,
-        useFastNormals: false,
+        metaballCount: 6,  // Reduced from 8
+        raySteps: 32,  // Reduced from 48 for better performance
+        useFastNormals: true,  // Use fast normals for medium devices
         targetFPS: 60,
         shaderPrecision: 'mediump',
         noiseOctaves: 3,
-        renderScale: 1.0,
+        renderScale: 0.75,  // Reduced resolution
         enablePostProcessing: false,
         cullDistance: 20,
         updateFrequency: 1,

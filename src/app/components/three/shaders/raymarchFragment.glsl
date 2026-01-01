@@ -137,7 +137,7 @@ float smin(float a, float b, float k) {
 vec3 getMetaballPosition(int index, float time, float progress) {
     // Distribute metaballs in a tight cluster around center at z=-2
     float angle = float(index) * 2.39996323;
-    float radius = 0.4 + sin(time * 0.3 + float(index)) * 0.15; // Slower, smaller
+    float radius = 1.0 + sin(time * 0.3 + float(index)) * 0.35; // Even larger distribution
 
     vec3 basePos = vec3(
         cos(angle) * radius,
@@ -148,12 +148,12 @@ vec3 getMetaballPosition(int index, float time, float progress) {
     // Mouse influence - gentle attraction
     vec3 mouseInfluence = vec3(uMouse.x * 0.3, uMouse.y * 0.3, 0.0);
 
-    // Curl noise for organic motion - REDUCED
-    vec3 noiseOffset = curlNoise(
-        basePos + vec3(time * 0.08), // Slower
-        time,
-        0.6,
-        0.15 // Much weaker
+    // Simplified noise for better performance
+    float simpleNoise = sin(time * 0.2 + float(index)) * cos(time * 0.15 - float(index) * 0.5);
+    vec3 noiseOffset = vec3(
+        simpleNoise * 0.1,
+        cos(time * 0.18 + float(index) * 0.7) * 0.1,
+        0.0
     );
 
     // Very gentle pulsing
@@ -163,15 +163,20 @@ vec3 getMetaballPosition(int index, float time, float progress) {
 }
 
 float getMetaballRadius(int index, float progress) {
-    float baseRadius = 0.6; // Smaller radius
-    float pulse = sin(uTime * 0.3 + float(index) * 1.2) * 0.08;
+    float baseRadius = 1.3; // Even larger radius for bigger metaballs
+    float pulse = sin(uTime * 0.3 + float(index) * 1.2) * 0.15;
     return baseRadius + pulse;
 }
 
-// Metaballs SDF with smooth blending
+// Metaballs SDF with smooth blending - Optimized
 float sdMetaballs(vec3 p) {
     float d = 1000.0;
     float blendStrength = 0.8; // Strong blending for unified liquid
+
+    // Early exit if point is far from the cluster center
+    if (length(p - vec3(0.0, 0.0, -2.0)) > 4.0) {
+        return d;
+    }
 
     for (int i = 0; i < MAX_METABALLS; i++) {
         if (i >= uNumMetaballs) break;
@@ -199,7 +204,8 @@ float raymarch(vec3 ro, vec3 rd) {
         if (d < MIN_DIST) return t;
         if (t > MAX_DIST) break;
 
-        t += d;
+        // Adaptive step size for performance
+        t += d * 0.9;  // Slightly conservative stepping
     }
 
     return -1.0; // Miss

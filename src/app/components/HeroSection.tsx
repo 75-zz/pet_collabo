@@ -75,10 +75,10 @@ export function HeroSection() {
       </Suspense>
 
       {/* Content */}
-      <div className="relative z-20 h-full flex items-center justify-center px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto text-center" style={{ mixBlendMode: 'difference' }}>
+      <div className="relative z-20 h-full flex items-center justify-center px-6 lg:px-12" style={{ isolation: 'isolate' }}>
+        <div className="max-w-6xl mx-auto text-center" style={{ mixBlendMode: 'difference', color: 'white' }}>
           <div ref={taglineRef} className="mb-8 lg:mb-12">
-            <p className="text-xs lg:text-sm tracking-[0.3em] lg:tracking-[0.5em] uppercase text-white">
+            <p className="text-xs lg:text-sm tracking-[0.15em] lg:tracking-[0.25em] uppercase text-white">
               AI Technology × Multi-Field Development
             </p>
           </div>
@@ -86,7 +86,7 @@ export function HeroSection() {
           <h1
             ref={titleRef}
             style={{ fontFamily: 'var(--font-serif)' }}
-            className="text-[clamp(3rem,12vw,10rem)] leading-[0.85] tracking-tight text-white mb-12 lg:mb-20"
+            className="text-[clamp(4rem,15vw,12rem)] leading-[0.85] tracking-tight text-white mb-12 lg:mb-20"
           >
             Pet
             <br />
