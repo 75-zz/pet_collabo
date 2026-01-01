@@ -90,7 +90,7 @@ export default async function handler(
               .header p {
                 margin: 5px 0 0 0;
                 color: #737373;
-                font-size: 14px;
+                font-size: 18px;
                 letter-spacing: 0.2em;
                 text-transform: uppercase;
               }
@@ -99,14 +99,14 @@ export default async function handler(
               }
               .label {
                 display: block;
-                font-size: 12px;
+                font-size: 16px;
                 letter-spacing: 0.2em;
                 text-transform: uppercase;
                 color: #737373;
                 margin-bottom: 8px;
               }
               .value {
-                font-size: 16px;
+                font-size: 18px;
                 color: #0a0a0a;
                 padding: 12px;
                 background-color: #f5f5f5;
@@ -120,7 +120,7 @@ export default async function handler(
                 margin-top: 40px;
                 padding-top: 20px;
                 border-top: 1px solid #e5e5e5;
-                font-size: 12px;
+                font-size: 16px;
                 color: #737373;
                 text-align: center;
               }

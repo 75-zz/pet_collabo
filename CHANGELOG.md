@@ -8,6 +8,15 @@ All notable changes to this project will be documented in this file.
 
 #### UI/UX改善
 
+- **フォントサイズの可読性向上**
+  - ベースフォントサイズを18pxに拡大（14px→16px→18px）
+  - メールテンプレートのフォントサイズを統一的に拡大
+    - ヘッダーサブテキスト: 14px→16px→18px
+    - ラベル: 12px→14px→16px
+    - 値: 16px→18px
+    - フッター: 12px→14px→16px
+  - より読みやすいタイポグラフィに改善
+
 - **流体金属エフェクトの表示品質向上**
   - スマホでのエッジのギザギザを改善
     - WebGLレンダラーのアンチエイリアシングを有効化
@@ -37,6 +46,8 @@ All notable changes to this project will be documented in this file.
     - 読みやすさを向上
 
 #### 変更ファイル
+- `src/styles/theme.css` - ベースフォントサイズを18pxに変更
+- `api/send-email.ts` - メールテンプレートの全フォントサイズを拡大
 - `src/app/components/three/FluidSimulation.ts` - アンチエイリアシング有効化、モバイルスケーリング追加
 - `src/app/components/three/utils/deviceDetection.ts` - モバイルレンダースケール向上
 - `src/app/components/three/shaders/raymarchFragment.glsl` - エッジ処理修正、スケーリング対応

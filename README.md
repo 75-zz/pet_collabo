@@ -103,6 +103,7 @@ pet_collabo_clean/
 
 ```css
 :root {
+  --font-size: 18px; /* ベースフォントサイズ */
   --font-serif: 'Your Font', serif;
   --font-sans: 'Your Font', sans-serif;
 }
