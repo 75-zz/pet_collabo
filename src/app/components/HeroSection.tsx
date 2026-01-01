@@ -85,7 +85,10 @@ export function HeroSection() {
 
           <h1
             ref={titleRef}
-            style={{ fontFamily: 'var(--font-serif)' }}
+            style={{
+              fontFamily: 'var(--font-serif)',
+              textShadow: '0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)'
+            }}
             className="text-[clamp(4rem,15vw,12rem)] leading-[0.85] tracking-tight text-white mb-12 lg:mb-20"
           >
             Pet

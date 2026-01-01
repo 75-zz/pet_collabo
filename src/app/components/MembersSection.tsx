@@ -8,20 +8,20 @@ gsap.registerPlugin(ScrollTrigger);
 const members = [
   {
     name: 'レオ',
-    role: 'Product Designer',
-    description: 'UIデザインとブランディングを担当。ユーザー体験を第一に考え、シンプルで使いやすいデザインを追求しています。',
+    role: 'Lead Engineer',
+    description: 'AI技術とフルスタック開発を担当。最新技術を駆使し、実用的なプロダクトの実装を推進しています。',
     initial: 'L'
   },
   {
     name: 'りょう',
-    role: 'Lead Engineer',
-    description: 'AI技術とフルスタック開発を担当。最新技術を駆使し、実用的なプロダクトの実装を推進しています。',
+    role: 'Business Developer',
+    description: 'ビジネス戦略と市場分析を担当。豊富な人脈を活かし、事業の成長をリードしています。',
     initial: 'R'
   },
   {
     name: 'なごみ',
-    role: 'Business Developer',
-    description: 'ビジネス戦略と市場分析を担当。ペット業界の知見を活かし、事業の成長をリードしています。',
+    role: 'Product Designer',
+    description: 'UIデザインとブランディングを担当。ユーザー体験を第一に考え、シンプルで使いやすいデザインを追求しています。',
     initial: 'N'
   }
 ];
