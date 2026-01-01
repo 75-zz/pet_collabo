@@ -5,7 +5,7 @@
 
 import * as THREE from 'three';
 import type { QualityPreset, QualitySettings } from './utils/deviceDetection';
-import { getQualitySettings, PerformanceMonitor } from './utils/deviceDetection';
+import { getQualitySettings, PerformanceMonitor, detectDeviceType } from './utils/deviceDetection';
 import vertexShader from './shaders/raymarchVertex.glsl';
 import fragmentShader from './shaders/raymarchFragment.glsl';
 
@@ -168,6 +168,11 @@ export class FluidSimulation {
     // Create fullscreen quad geometry (NDC coordinates)
     const geometry = new THREE.PlaneGeometry(2, 2);
 
+    // Detect if mobile to scale down metaballs
+    const isMobile = detectDeviceType() === 'mobile';
+    const metaballScale = isMobile ? 0.75 : 1.0;
+    const metaballScaleX = isMobile ? 0.7 : 1.0; // Horizontal scale for mobile
+
     // Create shader material for raymarching
     this.material = new THREE.ShaderMaterial({
       vertexShader,
@@ -182,6 +187,8 @@ export class FluidSimulation {
         uNumMetaballs: { value: this.quality.metaballCount },
         uUseFastNormals: { value: this.quality.useFastNormals },
         uMouse: { value: this.mousePosition },
+        uMetaballScale: { value: metaballScale },
+        uMetaballScaleX: { value: metaballScaleX },
       },
       transparent: true,
       depthWrite: false,

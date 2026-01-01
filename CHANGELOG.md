@@ -16,6 +16,15 @@ All notable changes to this project will be documented in this file.
     - 不要なエッジスムージング処理を削除
     - クリーンな流体金属表示に改善
 
+- **スマホでの流体金属サイズ最適化**
+  - モバイル端末での流体金属（Metaballs）のサイズを調整
+    - 全体サイズを75%に縮小
+    - 横幅（X軸）をさらに70%に縮小
+    - スマホ画面でより適切な表示サイズに
+  - シェーダーにデバイス別スケーリング機能を追加
+    - `uMetaballScale` uniform（全体スケール）
+    - `uMetaballScaleX` uniform（横幅スケール）
+
 - **レイアウト調整**
   - ContactSectionのメールフォーム下の連絡先情報を削除
     - 罫線と「Email/Location/Follow」セクションを削除
@@ -25,9 +34,9 @@ All notable changes to this project will be documented in this file.
     - 読みやすさを向上
 
 #### 変更ファイル
-- `src/app/components/three/FluidSimulation.ts` - アンチエイリアシング有効化
+- `src/app/components/three/FluidSimulation.ts` - アンチエイリアシング有効化、モバイルスケーリング追加
 - `src/app/components/three/utils/deviceDetection.ts` - モバイルレンダースケール向上
-- `src/app/components/three/shaders/raymarchFragment.glsl` - エッジ処理修正
+- `src/app/components/three/shaders/raymarchFragment.glsl` - エッジ処理修正、スケーリング対応
 - `src/app/components/ContactSection.tsx` - 連絡先情報セクション削除
 - `src/app/components/CultureSection.tsx` - タイトル行間調整
 

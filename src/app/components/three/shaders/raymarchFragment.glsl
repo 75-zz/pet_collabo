@@ -13,6 +13,8 @@ uniform int uMaxSteps;
 uniform int uNumMetaballs;
 uniform bool uUseFastNormals;
 uniform vec2 uMouse; // Mouse position (-1 to 1)
+uniform float uMetaballScale; // Metaball size scale (0.75 for mobile, 1.0 for desktop)
+uniform float uMetaballScaleX; // Horizontal scale (0.7 for mobile, 1.0 for desktop)
 
 // === VARYING ===
 varying vec2 vUv;
@@ -137,10 +139,10 @@ float smin(float a, float b, float k) {
 vec3 getMetaballPosition(int index, float time, float progress) {
     // Distribute metaballs in a tight cluster around center at z=-2
     float angle = float(index) * 2.39996323;
-    float radius = 1.0 + sin(time * 0.3 + float(index)) * 0.35; // Even larger distribution
+    float radius = (1.0 + sin(time * 0.3 + float(index)) * 0.35) * uMetaballScale; // Scale distribution
 
     vec3 basePos = vec3(
-        cos(angle) * radius,
+        cos(angle) * radius * uMetaballScaleX, // Apply horizontal scale to X
         sin(angle * 1.5) * radius * 0.5,
         -2.0 + sin(angle * 0.7) * radius * 0.2
     );
@@ -151,10 +153,10 @@ vec3 getMetaballPosition(int index, float time, float progress) {
     // Simplified noise for better performance
     float simpleNoise = sin(time * 0.2 + float(index)) * cos(time * 0.15 - float(index) * 0.5);
     vec3 noiseOffset = vec3(
-        simpleNoise * 0.1,
+        simpleNoise * 0.1 * uMetaballScaleX, // Apply horizontal scale to X
         cos(time * 0.18 + float(index) * 0.7) * 0.1,
         0.0
-    );
+    ) * uMetaballScale;
 
     // Very gentle pulsing
     float pulse = sin(time * 0.25 + float(index) * 0.3) * 0.08;
@@ -165,7 +167,7 @@ vec3 getMetaballPosition(int index, float time, float progress) {
 float getMetaballRadius(int index, float progress) {
     float baseRadius = 1.3; // Even larger radius for bigger metaballs
     float pulse = sin(uTime * 0.3 + float(index) * 1.2) * 0.15;
-    return baseRadius + pulse;
+    return (baseRadius + pulse) * uMetaballScale;
 }
 
 // Metaballs SDF with smooth blending - Optimized
@@ -173,8 +175,8 @@ float sdMetaballs(vec3 p) {
     float d = 1000.0;
     float blendStrength = 0.8; // Strong blending for unified liquid
 
-    // Early exit if point is far from the cluster center
-    if (length(p - vec3(0.0, 0.0, -2.0)) > 4.0) {
+    // Early exit if point is far from the cluster center (scaled)
+    if (length(p - vec3(0.0, 0.0, -2.0)) > 4.0 * uMetaballScale) {
         return d;
     }
 
