@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - **デプロイ・ドキュメント**
   - `DEPLOY_TO_VERCEL.md` - Vercelデプロイの完全ガイド
   - `docs/RESEND_API_SETUP.md` - Resend API詳細設定ガイド
+  - `docs/VERCEL_DOMAIN_SETUP.md` - Vercelカスタムドメイン設定ガイド（ドメイン購入〜SSL証明書まで）
   - `docs/QUICK_START.txt` - クイックスタートガイド
   - `docs/TROUBLESHOOTING.md` - トラブルシューティングガイド
   - `README.md` - プロジェクト総合ドキュメント
