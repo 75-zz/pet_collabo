@@ -245,24 +245,6 @@ export function ContactSection() {
             </button>
           </div>
         </form>
-
-        <div className="mt-16 lg:mt-24 pt-12 lg:pt-16 border-t border-black/10 grid sm:grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12 text-center">
-          <div>
-            <p className="text-xs tracking-[0.2em] uppercase mb-3 text-muted-foreground">Email</p>
-            <p className="text-sm break-all">contact@petcollabo.com</p>
-          </div>
-          <div>
-            <p className="text-xs tracking-[0.2em] uppercase mb-3 text-muted-foreground">Location</p>
-            <p className="text-sm">Tokyo, Japan</p>
-          </div>
-          <div className="sm:col-span-2 md:col-span-1">
-            <p className="text-xs tracking-[0.2em] uppercase mb-3 text-muted-foreground">Follow</p>
-            <div className="flex gap-6 justify-center">
-              <a href="#" className="text-sm hover:text-accent transition-colors">Twitter</a>
-              <a href="#" className="text-sm hover:text-accent transition-colors">Instagram</a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

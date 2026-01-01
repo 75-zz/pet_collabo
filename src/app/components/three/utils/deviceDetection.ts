@@ -153,7 +153,7 @@ export function getQualitySettings(preset: QualityPreset): QualitySettings {
         targetFPS: 30,
         shaderPrecision: 'mediump',
         noiseOctaves: 2,
-        renderScale: 0.5,      // 50% resolution for mobile performance
+        renderScale: 0.7,      // 70% resolution for better quality on mobile
         enablePostProcessing: false,
         cullDistance: 15,
         updateFrequency: 2,

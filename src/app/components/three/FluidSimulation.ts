@@ -69,7 +69,7 @@ export class FluidSimulation {
   private createRenderer(): THREE.WebGLRenderer {
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: false,  // Disable antialiasing for better performance
+      antialias: true,  // Enable antialiasing for smooth edges
       powerPreference: 'high-performance',
       stencil: false,  // Disable stencil buffer
       depth: false,  // Disable depth buffer for 2D raymarch

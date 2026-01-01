@@ -4,6 +4,33 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed - 2026-01-01
+
+#### UI/UX改善
+
+- **流体金属エフェクトの表示品質向上**
+  - スマホでのエッジのギザギザを改善
+    - WebGLレンダラーのアンチエイリアシングを有効化
+    - モバイルのレンダースケールを0.5→0.7に向上（40%の品質改善）
+  - PC表示の年輪模様を修正
+    - 不要なエッジスムージング処理を削除
+    - クリーンな流体金属表示に改善
+
+- **レイアウト調整**
+  - ContactSectionのメールフォーム下の連絡先情報を削除
+    - 罫線と「Email/Location/Follow」セクションを削除
+    - よりシンプルでクリーンなデザインに
+  - CultureSectionのタイトル行間を調整
+    - "Working at Pet Collabo"の行間を広げた（leading-[0.95]→leading-[1.15]）
+    - 読みやすさを向上
+
+#### 変更ファイル
+- `src/app/components/three/FluidSimulation.ts` - アンチエイリアシング有効化
+- `src/app/components/three/utils/deviceDetection.ts` - モバイルレンダースケール向上
+- `src/app/components/three/shaders/raymarchFragment.glsl` - エッジ処理修正
+- `src/app/components/ContactSection.tsx` - 連絡先情報セクション削除
+- `src/app/components/CultureSection.tsx` - タイトル行間調整
+
 ### Added - 2025-01-01 (Latest)
 
 #### 完全無料のメール送信機能実装

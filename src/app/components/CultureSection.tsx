@@ -82,9 +82,9 @@ export function CultureSection() {
           <p className="text-xs tracking-[0.3em] uppercase mb-6 lg:mb-8 text-muted-foreground">
             Our Culture & Benefit
           </p>
-          <h2 
+          <h2
             style={{ fontFamily: 'var(--font-serif)' }}
-            className="text-[clamp(2rem,7vw,6rem)] leading-[0.95] tracking-tight max-w-4xl"
+            className="text-[clamp(2rem,7vw,6rem)] leading-[1.15] tracking-tight max-w-4xl"
           >
             Working at
             <br />
