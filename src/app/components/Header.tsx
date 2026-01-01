@@ -81,29 +81,24 @@ export function Header() {
               className="md:hidden relative w-12 h-12 flex items-center justify-center group z-[201]"
               aria-label="Toggle menu"
             >
-              <div className="relative w-6 h-6">
+              <div className="relative w-6 h-4">
                 {/* Top line */}
                 <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 ease-out ${
-                  isMenuOpen 
-                    ? 'top-1/2 -translate-y-1/2 rotate-45' 
+                  isMenuOpen
+                    ? 'top-1/2 -translate-y-1/2 rotate-45'
                     : 'top-0 rotate-0'
                 }`}></span>
-                
+
                 {/* Middle line */}
                 <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-current transition-all duration-300 ease-out ${
                   isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'
                 }`}></span>
-                
+
                 {/* Bottom line */}
                 <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 ease-out ${
-                  isMenuOpen 
-                    ? 'top-1/2 -translate-y-1/2 -rotate-45' 
+                  isMenuOpen
+                    ? 'top-1/2 -translate-y-1/2 -rotate-45'
                     : 'bottom-0 rotate-0'
-                }`}></span>
-                
-                {/* Decorative circle */}
-                <span className={`absolute inset-0 border border-current rounded-full transition-all duration-500 ${
-                  isMenuOpen ? 'scale-150 opacity-0' : 'scale-100 opacity-20'
                 }`}></span>
               </div>
             </button>

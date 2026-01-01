@@ -17,6 +17,11 @@ All notable changes to this project will be documented in this file.
     - フッター: 12px→14px→16px
   - より読みやすいタイポグラフィに改善
 
+- **ハンバーガーメニューのデザイン改善**
+  - 装飾的な円を削除してよりシンプルなデザインに
+  - 三本線の間隔を縮小（24px→16px）
+  - よりコンパクトで洗練された見た目に
+
 - **流体金属エフェクトの表示品質向上**
   - スマホでのエッジのギザギザを改善
     - WebGLレンダラーのアンチエイリアシングを有効化
@@ -48,6 +53,7 @@ All notable changes to this project will be documented in this file.
 #### 変更ファイル
 - `src/styles/theme.css` - ベースフォントサイズを18pxに変更
 - `api/send-email.ts` - メールテンプレートの全フォントサイズを拡大
+- `src/app/components/Header.tsx` - ハンバーガーメニューのデザイン改善
 - `src/app/components/three/FluidSimulation.ts` - アンチエイリアシング有効化、モバイルスケーリング追加
 - `src/app/components/three/utils/deviceDetection.ts` - モバイルレンダースケール向上
 - `src/app/components/three/shaders/raymarchFragment.glsl` - エッジ処理修正、スケーリング対応
