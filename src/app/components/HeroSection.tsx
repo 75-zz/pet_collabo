@@ -7,7 +7,6 @@ const FluidBackground = lazy(() => import('./three/FluidBackground'));
 
 export function HeroSection() {
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const taglineRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const descRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -24,22 +23,13 @@ export function HeroSection() {
         },
       });
 
-      if (taglineRef.current) {
-        tl.from(taglineRef.current, {
-          y: 30,
-          opacity: 0,
-          duration: 1,
-          ease: 'power3.out'
-        });
-      }
-      
       if (titleRef.current) {
         tl.from(titleRef.current, {
           y: 100,
           opacity: 0,
           duration: 1.2,
           ease: 'power3.out'
-        }, '-=0.8');
+        });
       }
       
       if (descRef.current) {
@@ -77,12 +67,6 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-20 h-full flex items-center justify-center px-6 lg:px-12" style={{ isolation: 'isolate' }}>
         <div className="max-w-6xl mx-auto text-center" style={{ mixBlendMode: 'difference', color: 'white' }}>
-          <div ref={taglineRef} className="mb-8 lg:mb-12">
-            <p className="text-xs lg:text-sm tracking-[0.15em] lg:tracking-[0.25em] uppercase text-white">
-              AI Technology × Multi-Field Development
-            </p>
-          </div>
-
           <h1
             ref={titleRef}
             style={{

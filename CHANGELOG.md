@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Fixed - 2026-01-02
+
+#### UI/UX改善
+
+- **ヒーローセクションのシンプル化**
+  - 「AI Technology × Multi-Field Development」のタグラインを削除
+  - よりミニマルでクリーンなデザインに
+  - GSAPアニメーションのタイミングを最適化
+
+#### 変更ファイル
+- `src/app/components/HeroSection.tsx` - タグライン削除、アニメーション調整
+
 ### Fixed - 2026-01-01
 
 #### UI/UX改善
