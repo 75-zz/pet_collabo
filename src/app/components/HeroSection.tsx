@@ -82,7 +82,7 @@ export function HeroSection() {
 
           <div ref={descRef} className="max-w-2xl mx-auto">
             <p className="text-white text-sm lg:text-base leading-relaxed mb-12 lg:mb-16 px-4">
-              AI技術を活用した多分野開発事業。ペット業界から不動産まで、
+              AI技術を活用した多分野開発事業。ペット業界をはじめ、
               <br className="hidden sm:block" />
               幅広い領域で革新的なソリューションを創造します。
             </p>

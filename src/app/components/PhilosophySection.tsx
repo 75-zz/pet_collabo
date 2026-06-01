@@ -87,7 +87,7 @@ export function PhilosophySection() {
               <h3 className="text-xl lg:text-2xl mb-3 lg:mb-4 tracking-wide">多様な分野への挑戦</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">
                 一つの業界に縛られず、様々な分野でAIの可能性を追求。
-                ペット業界から不動産まで、幅広い領域で価値を創造します。
+                ペット業界をはじめ、幅広い領域で価値を創造します。
               </p>
             </div>
             
