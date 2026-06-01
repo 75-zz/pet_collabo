@@ -60,7 +60,7 @@ export default async function handler(
     // メール送信
     const data = await resend.emails.send({
       from: 'Pet Collabo Contact Form <onboarding@resend.dev>', // Resendのデフォルト送信元
-      to: ['contact@petcollabo.com'], // 実際の受信先メールアドレスに変更
+      to: ['k.75mixpc@gmail.com'], // 実際の受信先メールアドレス
       replyTo: email, // 返信先を問い合わせ者のメールアドレスに設定
       subject: `Pet Collabo お問い合わせ - ${name}様より`,
       html: `
