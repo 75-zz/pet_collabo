@@ -4,6 +4,32 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Changed - 2026-06-01
+
+#### セクション削除（コンテンツ整理）
+
+- **Our Creators（Members）セクションを削除**
+  - `App.tsx` から `MembersSection` の import と描画を削除
+  - `MembersSection.tsx` ファイル自体を削除
+  - ヘッダーナビ（PC／モバイル両方）から「Members」項目を削除し、モバイルの番号を振り直し（01→02→03）
+  - フッターの「Members」リンクを削除
+- **Works（Current & Future）から「02 AI×不動産関連事業」カードを削除**
+  - `WorksSection.tsx` の works 配列から該当エントリを削除（残りは「01 犬服着せ替えツール」のみ）
+
+#### お問い合わせフォームのメール送信を有効化
+
+- **Resend によるメール送信を本番で稼働開始**
+  - Vercel に環境変数 `RESEND_API_KEY` を登録（Production / Preview / Development）
+  - 受信先メールを `contact@petcollabo.com` から `k.75mixpc@gmail.com` に変更（`api/send-email.ts`）
+    - Resend 無料枠（独自ドメイン未検証）では登録アドレス宛のみ送信可能なため
+  - 本番 API 動作テストおよび実際の受信確認まで完了
+
+#### デプロイ／リポジトリ運用
+
+- ローカル作業ディレクトリを GitHub リポジトリ（`75-zz/pet_collabo`）に接続し、リモート最新を取り込み
+- 追跡対象だったビルド成果物 `dist/` を `.gitignore` 準拠で追跡解除（Vercel がソースからビルドするため）
+- GitHub の自動デプロイが未連携のため、Vercel CLI から本番デプロイを実施
+
 ### Fixed - 2026-01-02
 
 #### UI/UX改善
