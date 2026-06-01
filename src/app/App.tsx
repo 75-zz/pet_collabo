@@ -2,7 +2,6 @@ import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { PhilosophySection } from './components/PhilosophySection';
 import { WorksSection } from './components/WorksSection';
-import { MembersSection } from './components/MembersSection';
 import { CultureSection } from './components/CultureSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -16,7 +15,6 @@ export default function App() {
         <HeroSection />
         <PhilosophySection />
         <WorksSection />
-        <MembersSection />
         <CultureSection />
         <ContactSection />
       </main>

@@ -13,14 +13,6 @@ const works = [
     category: 'Pet Tech',
     status: '開発中',
     image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBjbG90aGVzfGVufDF8fHx8MTc2NzA5NTYyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
-  },
-  {
-    number: '02',
-    title: 'AI×不動産関連事業',
-    description: 'AI技術を活用した不動産業界向けの革新的なサービス開発。データ分析と自動化により、業界の効率化と新たな価値創造を目指します。',
-    category: 'Real Estate Tech',
-    status: '構想中',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWFsJTIwZXN0YXRlJTIwbW9kZXJufGVufDF8fHx8MTc2NzA5NTYyOHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
   }
 ];
 

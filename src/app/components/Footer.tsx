@@ -24,9 +24,6 @@ export function Footer() {
             <a href="#works" className="text-xs tracking-[0.2em] uppercase hover:text-accent transition-colors">
               Works
             </a>
-            <a href="#members" className="text-xs tracking-[0.2em] uppercase hover:text-accent transition-colors">
-              Members
-            </a>
             <a href="#contact" className="text-xs tracking-[0.2em] uppercase hover:text-accent transition-colors">
               Contact
             </a>

@@ -61,14 +61,8 @@ export function Header() {
               >
                 Works
               </button>
-              <button 
-                onClick={() => scrollToSection('members')} 
-                className="text-xs lg:text-sm tracking-wider uppercase hover:text-accent transition-colors"
-              >
-                Members
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')} 
+              <button
+                onClick={() => scrollToSection('contact')}
                 className="text-xs lg:text-sm tracking-wider uppercase hover:text-accent transition-colors"
               >
                 Contact
@@ -118,8 +112,7 @@ export function Header() {
               {[
                 { id: 'philosophy', label: 'Philosophy', number: '01' },
                 { id: 'works', label: 'Works', number: '02' },
-                { id: 'members', label: 'Members', number: '03' },
-                { id: 'contact', label: 'Contact', number: '04' }
+                { id: 'contact', label: 'Contact', number: '03' }
               ].map((item, index) => (
                 <button
                   key={item.id}
